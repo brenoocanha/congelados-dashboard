@@ -11,3 +11,5 @@ export const googleSheetsCredentials = {
   type: process.env.TYPE,
   universeDomain: process.env.UNIVERSE_DOMAIN,
 }
+
+export const googleSheetID = process.env.GOOGLE_SHEET_ID;
