@@ -1,13 +1,25 @@
 
+"use client"
+
 import DataTable from "../core/DataTable";
 import Image from "next/image";
 import { getProducts } from "@/actions/getProducts";
 
 import LogoUllian from "/public/assets/logo-ullian.png"
+import { useEffect, useState } from "react";
 
-export default async function HomeLayout() {
+export default function HomeLayout() {
 
-  const data = await getProducts();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const productsData = await getProducts();
+      setData(productsData);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section className="w-full min-h-screen bg-[#F58635] px-8">

@@ -1,15 +1,15 @@
 export const googleSheetsCredentials = {
-  authProvider: process.env.AUTH_PROVIDER,
-  authUri: process.env.AUTH_URI,
-  clientEmail: process.env.CLIENT_EMAIL,
-  clientId: process.env.CLIENT_ID,
-  clientCertUrl: process.env.CLIENT_CERT_URL,
-  privateKey: process.env.PRIVATE_KEY?.replace(/\\n/g, '\n'),
-  privateKeyId: process.env.PRIVATE_KEY_ID,
-  projectId: process.env.PROJECT_ID,
-  tokenUri: process.env.TOKEN_URI,
-  type: process.env.TYPE,
-  universeDomain: process.env.UNIVERSE_DOMAIN,
+  authProvider: process.env.NEXT_PUBLIC_AUTH_PROVIDER,
+  authUri: process.env.NEXT_PUBLIC_AUTH_URI,
+  clientEmail: process.env.NEXT_PUBLIC_CLIENT_EMAIL,
+  clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
+  clientCertUrl: process.env.NEXT_PUBLIC_CLIENT_CERT_URL,
+  privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+  privateKeyId: process.env.NEXT_PUBLIC_PRIVATE_KEY_ID,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  tokenUri: process.env.NEXT_PUBLIC_TOKEN_URI,
+  type: process.env.NEXT_PUBLIC_TYPE,
+  universeDomain: process.env.NEXT_PUBLIC_UNIVERSE_DOMAIN,
 }
 
-export const googleSheetID = process.env.GOOGLE_SHEET_ID;
+export const googleSheetID = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID;
