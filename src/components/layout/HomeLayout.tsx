@@ -1,14 +1,10 @@
 
 "use client"
 
-// import DataTable from "../core/DataTable";
+import DataTable from "../core/DataTable";
 import Image from "next/image";
 import { getProducts } from "@/actions/getProducts";
 import dynamic from "next/dynamic";
-
-const DataTable = dynamic(() => import("@/components/core/DataTable"), {
-  ssr: false,
-})
 
 import LogoUllian from "/public/assets/logo-ullian.png"
 import { useEffect, useState } from "react";
