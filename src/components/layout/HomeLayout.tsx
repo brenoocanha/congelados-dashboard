@@ -4,14 +4,21 @@
 import DataTable from "../core/DataTable";
 import Image from "next/image";
 import { getProducts } from "@/actions/getProducts";
-import dynamic from "next/dynamic";
-
+import screenfull from 'screenfull';
 import LogoUllian from "/public/assets/logo-ullian.png"
 import { useEffect, useState } from "react";
 
 export default function HomeLayout() {
 
   const [data, setData] = useState([]);
+
+  const handleFullscreenRequest = () => {
+    if (screenfull.isEnabled && !screenfull.isFullscreen) {
+      screenfull.request();
+    } else if (screenfull.isFullscreen) {
+      screenfull.exit();
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,12 +27,21 @@ export default function HomeLayout() {
     };
 
     fetchData();
+
+    const button = document.getElementById("fullscreen");
+
+    button?.addEventListener("click", handleFullscreenRequest);
+
+    return () => {
+      document.removeEventListener("click", handleFullscreenRequest);
+    };
+
   }, []);
 
   return (
     <section className="w-full min-h-screen bg-[#F58635] px-8">
       <div className=" relativew-full flex justify-center py-4 items-center">
-        <h1 className="text-7xl text-white font-bold">CONGELADOS</h1>
+        <h1 id="fullscreen" className="text-7xl text-white font-bold">CONGELADOS</h1>
         <div className="absolute top-4 left-8 overflow-hidden max-w-[18.75rem]">
           <Image
             alt="Ullian Logo"
@@ -34,7 +50,9 @@ export default function HomeLayout() {
           />
         </div>
       </div>
-      <DataTable products={data} />
+      <div className="">
+        <DataTable products={data} />
+      </div>
     </section>
   )
 }
